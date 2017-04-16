@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="plug3"/>
+  <!-- add our web resources -->
+  <web-resource key="plug3-resources" name="plug3 Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="plug3.css" location="/css/plug3.css"/>
+    <resource type="download" name="plug3.js" location="/js/plug3.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>plug3</context>
+  </web-resource>
+  <workflow-condition key="tw-workflow-condition" name="Tw Workflow Condition" i18n-name-key="tw-workflow-condition.name" class="com.thisworld.jira.plugin.jira.workflow.TwWorkflowConditionFactory">
+    <description key="tw-workflow-condition.description">The Tw Workflow Condition Plugin</description>
+    <condition-class>com.thisworld.jira.plugin.jira.workflow.TwWorkflowCondition</condition-class>
+    <resource type="velocity" name="view" location="templates/conditions/tw-workflow-condition.vm"/>
+    <resource type="velocity" name="input-parameters" location="templates/conditions/tw-workflow-condition-input.vm"/>
+    <resource type="velocity" name="edit-parameters" location="templates/conditions/tw-workflow-condition-input.vm"/>
+  </workflow-condition>
+</atlassian-plugin>

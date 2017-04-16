@@ -1,0 +1,33 @@
+<tr>
+    <td class="fieldLabelArea">
+        Word:
+    </td>
+    <td nowrap>
+        <input name="word" id="word" value="${textutils.htmlEncode($word)}" />
+    </td>
+</tr>
+<tr>
+    <td class="fieldLabelArea">
+        Sub-taks type:
+    </td>
+    <td nowrap>
+	<select id="subtask_type" name="subtask_type">
+        #foreach ($issueType in $subtaskIssueTypes)
+		<option value="$issueType.getName()" 
+		  #if ( $issueType.getName().equals($subtask_type) )
+		  selected
+		  #end
+		>${textutils.htmlEncode($issueType.getName())}</option>
+        #end
+	</select>
+
+    </td>
+</tr>
+<tr>
+    <td class="fieldLabelArea">
+        Minimum Number of Sub-Tasks:
+    </td>
+    <td nowrap>
+        <input name="subtasks_qty" id="subtasks_qty" value="${textutils.htmlEncode($subtasks_qty)}" />
+    </td>
+</tr>

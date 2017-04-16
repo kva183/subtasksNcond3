@@ -1,0 +1,25 @@
+<tr>
+    <td class="fieldLabelArea">
+        Sub-taks type:
+    </td>
+    <td nowrap>
+	<select id="subtask_type_id" name="subtask_type_id">
+        #foreach ($issueType in $subtaskIssueTypes)
+		<option value="$issueType.getId()" 
+		  #if ( $issueType.getId().equals($subtask_type_id) )
+		  selected
+		  #end
+		>${textutils.htmlEncode($issueType.getName())}</option>
+        #end
+	</select>
+
+    </td>
+</tr>
+<tr>
+    <td class="fieldLabelArea">
+        Minimum Number of Sub-Tasks:
+    </td>
+    <td nowrap>
+        <input name="subtasks_qty" id="subtasks_qty" value="${textutils.htmlEncode($subtasks_qty)}" />
+    </td>
+</tr>

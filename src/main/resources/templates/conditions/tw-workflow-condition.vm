@@ -1,0 +1,1 @@
+At least '<b>${textutils.htmlEncode($subtasks_qty)}</b>' sub-task(s) of type [<b>${textutils.htmlEncode($subtask_type_name)}</b>] must exist
